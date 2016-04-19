@@ -105,15 +105,6 @@ class lib_menu extends connector {
 				$orderlink[0]['link'] = $this->get_link('order', array(), $lngpack);
 			}
 		}
-		$enquirylink = array();
-		if ($this->CON['isenquiry']) {
-			if ((!admin_WAP && $this->CON['enquiry_menu']) || (admin_WAP && $this->CON['wap_ismenu_enquiry'])) {
-				$enquirylink[0]['title'] = $LANPACK['enquirytitle'];
-				$enquirylink[0]['path'] = 'enquiry';
-				$enquirylink[0]['current'] = 0;
-				$enquirylink[0]['link'] = $this->get_link('enquiry', array(), $lngpack);
-			}
-		}
 		$menuarray = array();
 		if (is_array($chacherray) && is_array($formarray)) {
 			$menuarray = array_merge_recursive($chacherray, $formarray);
@@ -127,7 +118,7 @@ class lib_menu extends connector {
 			$homelink[0]['current'] = 0;
 			$homelink[0]['link'] = $this->get_link('home', array(), $lngpack);
 		}
-		$menuarray = array_merge_recursive($homelink, $menuarray, $forumlink, $memberlink, $orderlink, $enquirylink);
+		$menuarray = array_merge_recursive($homelink, $menuarray, $forumlink, $memberlink, $orderlink);
 		$this->pagetemplate->assign('array', $menuarray);
 		$this->pagetemplate->assign('lng', $lng);
 		$this->pagetemplate->assign('lngpack', $LANPACK);

@@ -2,12 +2,6 @@
 	<div class="logo"><img src="<?php echo $this->_tpl_vars['rootpath'] ?>images/logo.jpg" alt="logo"/></div>
 	<div class="head_botton">
 		<ul class="unstyled">
-			214adb21252b0af7b03s214s9lng||||60af7b03s21fs
-			<?php if (count($this->_tpl_vars['array'])>0){$divid_i=1;for($i=0;$i<count($this->_tpl_vars['array']); $i++){?>
-			<li><a href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>"><?php echo $this->_tpl_vars['array'][$i]['lngtitle'] ?></a></li>
-			<?php }} ?>
-			214adb21252b0af7b03s214s9
-			<li><a href="<?php echo $this->_tpl_vars['rootdir'] ?>wap/">手机网站</a></li>
 			<li><a href="4adb4912cd04e6fd3mlink|1|login4adb4912cd04e6fd3">会员中心</a></li>
 			<li><a href="4adb4912cd04e6fd3mlink|2|order4adb4912cd04e6fd3">购物车</a></li>
 		</ul>

@@ -2,12 +2,6 @@
 	<div class="logo"><img src="{%$rootpath%}images/logo.jpg" alt="logo"/></div>
 	<div class="head_botton">
 		<ul class="unstyled">
-			{%get name=lng%}
-			{%forlist from=$array key=i%}
-			<li><a href="{%$array[i].link%}">{%$array[i].lngtitle%}</a></li>
-			{%/forlist%}
-			{%/get%}
-			<li><a href="{%$rootdir%}wap/">手机网站</a></li>
 			<li><a href="{%find:mlink class=1 out=login%}">会员中心</a></li>
 			<li><a href="{%find:mlink class=2 out=order%}">购物车</a></li>
 		</ul>
