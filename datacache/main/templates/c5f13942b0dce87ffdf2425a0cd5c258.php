@@ -85,70 +85,10 @@
 		</ul>
 		214adb21252b0af7b03s214s9
 
-		<h2 style="margin-top: 15px;">品牌列表</h2>
-		214adb21252b0af7b03s214s9subtype|mid:<?php echo $this->_tpl_vars['type']['mid'] ?>|||60af7b03s21fs
-		<ul class="espcms_three_one">
-			<?php if (count($this->_tpl_vars['array'])>0){$divid_i=1;for($i=0;$i<count($this->_tpl_vars['array']); $i++){?>
-				<li><a title="<?php echo $this->_tpl_vars['array'][$i]['subjectname'] ?>" href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>"><?php echo $this->_tpl_vars['array'][$i]['subjectname'] ?></a></li>
-			<?php }} ?>
-		</ul>
-		214adb21252b0af7b03s214s9
-
 		885BA145EFC8431D34F5CC06D142F143specialty/cn/public/left.html|885BA145EFC8431D34F5CC06D142F143
 	</div>
 
 	<div class="espcms_page_right">
-		<div class="espcms_page_typename"><?php echo $this->_tpl_vars['type']['typename'] ?></div>
-		<div class="espcms_page_location">6623ef97c6f6ccf2fb032e800d2edda9path|type:type,id:<?php echo $this->_tpl_vars['type']['tid'] ?>||||6623ef97c6f6ccf2fb032e800d2edda9</div>
-		<div class="espcms_page_right_line"></div>
-
-		<div class="espcms_pic_index">
-			<div class="hd">
-				<ul>
-					<li>推荐产品</li>
-					<li>最新产品</li>
-					<li>热点商品</li>
-				</ul>
-			</div>
-			<div class="bd">
-				<ul class="lh">
-					214adb21252b0af7b03s214s9list|mid:<?php echo $this->_tpl_vars['type']['mid'] ?>,tid:<?php echo $this->_tpl_vars['type']['tid'] ?>,max:5,dlid:3|||60af7b03s21fs
-					<?php if (count($this->_tpl_vars['array'])>0){$divid_i=1;for($i=0;$i<count($this->_tpl_vars['array']); $i++){?>
-					<li>
-						<div class="p-img ld"><a href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"><img src="<?php echo $this->zoom($this->_tpl_vars['array'][$i]['pic'],137,132,'',2) ?>" alt="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"/></a></div>
-						<div class="p-name"><a target="_blank" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>" href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>"><?php echo $this->cutstr($this->_tpl_vars['array'][$i]['ctitle'],10,'') ?></a></div>
-						<div class="p-price">购买价：<strong>￥<?php echo $this->_tpl_vars['array'][$i]['bprice'] ?></strong></div>
-					</li>
-					<?php }} ?>
-					214adb21252b0af7b03s214s9
-				</ul>
-
-				<ul class="lh">
-					214adb21252b0af7b03s214s9list|mid:<?php echo $this->_tpl_vars['type']['mid'] ?>,tid:<?php echo $this->_tpl_vars['type']['tid'] ?>,max:5|||60af7b03s21fs
-					<?php if (count($this->_tpl_vars['array'])>0){$divid_i=1;for($i=0;$i<count($this->_tpl_vars['array']); $i++){?>
-					<li>
-						<div class="p-img ld"><a href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"><img src="<?php echo $this->zoom($this->_tpl_vars['array'][$i]['pic'],137,132,'',2) ?>" alt="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"/></a></div>
-						<div class="p-name"><a target="_blank" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>" href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>"><?php echo $this->cutstr($this->_tpl_vars['array'][$i]['ctitle'],10,'') ?></a></div>
-						<div class="p-price">购买价：<strong>￥<?php echo $this->_tpl_vars['array'][$i]['bprice'] ?></strong></div>
-					</li>
-					<?php }} ?>
-					214adb21252b0af7b03s214s9
-				</ul>
-
-				<ul class="lh">
-					214adb21252b0af7b03s214s9list|mid:<?php echo $this->_tpl_vars['type']['mid'] ?>,tid:<?php echo $this->_tpl_vars['type']['tid'] ?>,max:5,sort:4|||60af7b03s21fs
-					<?php if (count($this->_tpl_vars['array'])>0){$divid_i=1;for($i=0;$i<count($this->_tpl_vars['array']); $i++){?>
-					<li>
-						<div class="p-img ld"><a href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"><img src="<?php echo $this->zoom($this->_tpl_vars['array'][$i]['pic'],137,132,'',2) ?>" alt="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>"/></a></div>
-						<div class="p-name"><a target="_blank" title="<?php echo $this->_tpl_vars['array'][$i]['title'] ?>" href="<?php echo $this->_tpl_vars['array'][$i]['link'] ?>"><?php echo $this->cutstr($this->_tpl_vars['array'][$i]['ctitle'],10,'') ?></a></div>
-						<div class="p-price">购买价：<strong>￥<?php echo $this->_tpl_vars['array'][$i]['bprice'] ?></strong></div>
-					</li>
-					<?php }} ?>
-					214adb21252b0af7b03s214s9
-				</ul>
-			</div>
-			<script type="text/javascript">jQuery(".espcms_pic_index").slide({delayTime: 0});</script>
-		</div>
 		<div class="espcms_page_typename">最新产品列表</div>
 		<div class="espcms_page_right_line"></div>
 		<div class="espcms_pic_index pb20">

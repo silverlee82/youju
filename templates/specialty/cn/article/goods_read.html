@@ -117,7 +117,7 @@
 				<dd class="f14">产品编号：{%$read.tsn%}</dd>
 				<dd class="f14">市场价格：￥{%$read.oprice%}</dd>
 				<dd class="f14">购买价格：<span class="espcms_priceclass">￥{%$read.bprice%}</span></dd>
-				<dd class="espcms_pro_orderbotton"><a target="_blank" class="button blue2" href="{%$read.buylink%}">我要购买</a>&nbsp;<a target="_blank" class="button blue2" href="{%$read.enqlink%}">我要询价</a></dd>
+				<dd class="espcms_pro_orderbotton"><a target="_blank" class="button blue2" href="{%$read.buylink%}">我要购买</a></dd>
 			</dl>
 		</div>
 		{%if count($photo)>0%}
@@ -156,29 +156,6 @@
 		</div>
 		{%/if%}
 
-		{%if $read.linkdid!=''%}
-		<div class="espcms_page_labelname">相关产品</div>
-		<div class="espcms_page_right_line"></div>
-		<div class="espcms_pic_index pb20">
-			<ul class="lh">
-				{%get name=list class=mid:$read.mid,tid:$read.tid,linkdid:$read.linkdid,max:6%}
-				{%forlist from=$array key=i%}
-				<li>
-					<div class="p-img ld"><a href="{%$array[i].link%}" title="{%$array[i].title%}"><img src="{%$array[i].pic|zoom(137,132,'',2)%}" alt="{%$array[i].title%}"/></a></div>
-					<div class="p-name"><a target="_blank" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle|cutstr(10,'')%}</a></div>
-					<div class="p-price">购买价：<strong>￥{%$array[i].bprice%}</strong></div>
-					<div class="p-botton"><a href="{%$array[i].buylink%}" class="button dahui">点击购买</a></div>
-				</li>
-				{%/forlist%}
-				{%/get%}
-			</ul>
-		</div>
-		{%/if%}
-		<div class="espcms_page_labelname">在线留言</div>
-		<div class="espcms_page_right_line"></div>
-		<div class="espcms_book pb20">
-			{%list name=messlist class=did:$read.did,max:5%}
-		</div>
 	</div>
 </div>
 {%link file="cn/public/footer.html"%}

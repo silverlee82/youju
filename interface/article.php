@@ -103,7 +103,6 @@ class mainpage extends connector {
 				$rsList['pageclass'] = $typeread_last['pageclass'];
 				$rsList['link'] = $this->get_link('doc', $rsList, admin_LNG);
 				$rsList['buylink'] = $this->get_link('buylink', $rsList, admin_LNG);
-				$rsList['enqlink'] = $this->get_link('enqlink', $rsList, admin_LNG);
 				$rsList['ctitle'] = empty($rsList['color']) ? $rsList['title'] : "<font color='" . $rsList['color'] . "'>" . $rsList['title'] . "</font>";
 				$array[] = is_array($attarray) ? array_merge($attarray, $rsList) : $rsList;
 			}

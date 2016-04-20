@@ -85,70 +85,10 @@
 		</ul>
 		{%/get%}
 
-		<h2 style="margin-top: 15px;">品牌列表</h2>
-		{%get name=subtype class=mid:$type.mid%}
-		<ul class="espcms_three_one">
-			{%forlist from=$array key=i%}
-				<li><a title="{%$array[i].subjectname%}" href="{%$array[i].link%}">{%$array[i].subjectname%}</a></li>
-			{%/forlist%}
-		</ul>
-		{%/get%}
-
 		{%link file="cn/public/left.html"%}
 	</div>
 
 	<div class="espcms_page_right">
-		<div class="espcms_page_typename">{%$type.typename%}</div>
-		<div class="espcms_page_location">{%list name=path class=type:type,id:$type.tid%}</div>
-		<div class="espcms_page_right_line"></div>
-
-		<div class="espcms_pic_index">
-			<div class="hd">
-				<ul>
-					<li>推荐产品</li>
-					<li>最新产品</li>
-					<li>热点商品</li>
-				</ul>
-			</div>
-			<div class="bd">
-				<ul class="lh">
-					{%get name=list class=mid:$type.mid,tid:$type.tid,max:5,dlid:3%}
-					{%forlist from=$array key=i%}
-					<li>
-						<div class="p-img ld"><a href="{%$array[i].link%}" title="{%$array[i].title%}"><img src="{%$array[i].pic|zoom(137,132,'',2)%}" alt="{%$array[i].title%}"/></a></div>
-						<div class="p-name"><a target="_blank" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle|cutstr(10,'')%}</a></div>
-						<div class="p-price">购买价：<strong>￥{%$array[i].bprice%}</strong></div>
-					</li>
-					{%/forlist%}
-					{%/get%}
-				</ul>
-
-				<ul class="lh">
-					{%get name=list class=mid:$type.mid,tid:$type.tid,max:5%}
-					{%forlist from=$array key=i%}
-					<li>
-						<div class="p-img ld"><a href="{%$array[i].link%}" title="{%$array[i].title%}"><img src="{%$array[i].pic|zoom(137,132,'',2)%}" alt="{%$array[i].title%}"/></a></div>
-						<div class="p-name"><a target="_blank" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle|cutstr(10,'')%}</a></div>
-						<div class="p-price">购买价：<strong>￥{%$array[i].bprice%}</strong></div>
-					</li>
-					{%/forlist%}
-					{%/get%}
-				</ul>
-
-				<ul class="lh">
-					{%get name=list class=mid:$type.mid,tid:$type.tid,max:5,sort:4%}
-					{%forlist from=$array key=i%}
-					<li>
-						<div class="p-img ld"><a href="{%$array[i].link%}" title="{%$array[i].title%}"><img src="{%$array[i].pic|zoom(137,132,'',2)%}" alt="{%$array[i].title%}"/></a></div>
-						<div class="p-name"><a target="_blank" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle|cutstr(10,'')%}</a></div>
-						<div class="p-price">购买价：<strong>￥{%$array[i].bprice%}</strong></div>
-					</li>
-					{%/forlist%}
-					{%/get%}
-				</ul>
-			</div>
-			<script type="text/javascript">jQuery(".espcms_pic_index").slide({delayTime: 0});</script>
-		</div>
 		<div class="espcms_page_typename">最新产品列表</div>
 		<div class="espcms_page_right_line"></div>
 		<div class="espcms_pic_index pb20">
