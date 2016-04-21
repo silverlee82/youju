@@ -133,27 +133,10 @@ class mainpage extends connector {
 		$this->pagetemplate->assign('mlink', $this->mlink);
 		$opid = $read['opid'];
 		$osid = $read['osid'];
-		$payread = !empty($opid) ? $this->get_payplug_view($opid) : 0;
-		$shipread = !empty($osid) ? $this->get_shipplug_view($osid) : 0;
-		if (!empty($opid)) {
-			$rsOrder = array('ordersn' => $read['ordersn'], 'orderamount' => $read['orderamount'], 'oid' => $oid);
-			$paylist = $this->fun->formatarray($payread['pluglist']);
-			$plugcode = $payread['paycode'];
-			if (!empty($plugcode)) {
-				include_once admin_ROOT . 'public/plug/payment/' . $plugcode . '.php';
-				$payobj = new $plugcode();
-				$codesn = $this->fun->eccode($plugcode . $read['ordersn'] . $oid, 'ENCODE', db_pscode, FALSE);
-				$respondArray = array('code' => $plugcode, 'ordersn' => $read['ordersn'], 'oid' => $oid, 'codesn' => $codesn);
-				$return_url = $this->get_link('paybackurl', $respondArray, admin_LNG, 0, 1);
-				$orderonline = $payobj->get_code($rsOrder, $paylist, $return_url, $return_url);
-			}
-		}
 		$this->lng['sitename'] = $this->lng['member_title'] . '-' . $this->lng['sitename'];
 		$this->pagetemplate->assign('lngpack', $this->lng);
 		$this->pagetemplate->assign('moneytype', $this->CON['order_moneytype']);
 		$this->pagetemplate->assign('orderonline', $orderonline);
-		$this->pagetemplate->assign('pay', $payread);
-		$this->pagetemplate->assign('shiping', $shipread);
 		$this->pagetemplate->assign('path', 'member');
 		$this->pagetemplate->assign('tokenkey', $this->fun->token());
 		$templatesDIR = $this->get_templatesdir('member');

@@ -1,5 +1,5 @@
 <?php
-// uptime:2016-04-21 00:14:01
+// uptime:2016-04-21 19:53:01
 // ECISP.CN 
 $CONFIG=Array(
      'icpbeian'=>'',
@@ -156,6 +156,6 @@ ESPCMS 保留所有权利',
      'wap_templates'=>'touch',
      'isdbo'=>'0',
      'dbosn'=>'EDF2614',
-     'dietime'=>'1461168841',
+     'dietime'=>'1461239581',
 )
 ?>

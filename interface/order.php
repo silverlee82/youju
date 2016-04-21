@@ -167,16 +167,6 @@ class mainpage extends connector {
 			if (!empty($mid)) {
 				$midopid = $this->get_modelview($mid, 'opid');
 			}
-			$payplug = $this->get_payplug_array($midopid);
-			if ($midopid && is_array($payplug)) {
-				foreach ($payplug['list'] as $key => $value) {
-					if ($value['selected'] != 'selected') {
-						unset($payplug['list'][$key]);
-					}
-				}
-				sort($payplug['list']);
-			}
-			$shipplug = $this->get_shipplug_array();
 			$cookiceprice = md5("$productmoney|$discount_productmoney");
 			$this->fun->setcookie('ecisp_order_sncode', $this->fun->eccode($cookiceprice, 'ENCODE', db_pscode));
 			$this->pagetemplate->assign('discount', $order_discount);
@@ -186,8 +176,6 @@ class mainpage extends connector {
 			$this->pagetemplate->assign('discount_productmoney_f', number_format($discount_productmoney, 2, '.', ','));
 			$this->pagetemplate->assign('productmoney_f', number_format($productmoney, 2, '.', ','));
 			$this->pagetemplate->assign('discountmoney_f', number_format($discountmoney, 2, '.', ','));
-			$this->pagetemplate->assign('payplug', $payplug['list']);
-			$this->pagetemplate->assign('shipplug', $shipplug['list']);
 			$this->pagetemplate->assign('array', $array);
 		} else {
 			$buylink = $this->get_link('order', array(), admin_LNG);
@@ -224,36 +212,8 @@ class mainpage extends connector {
 		$ordersncode = $this->fun->accept('ecisp_order_sncode', 'C');
 		$userid = intval($this->fun->accept('userid', 'P'));
 		$userid = empty($userid) ? 0 : $userid;
-		$consignee = trim($this->fun->accept('alias', 'P', true, true));
-		$consignee = $this->fun->substr($consignee, 12);
-		$email = $this->fun->accept('email', 'P', true, true);
-		$country = intval($this->fun->accept('cityone', 'P'));
-		$country = empty($country) ? 0 : $country;
-		$province = intval($this->fun->accept('citytwo', 'P'));
-		$province = empty($province) ? 0 : $province;
-		$city = intval($this->fun->accept('citythree', 'P'));
-		$city = empty($city) ? 0 : $city;
-		$district = intval($this->fun->accept('district', 'P'));
-		$district = empty($district) ? 0 : $district;
-		$address = trim($this->fun->accept('address', 'P', true, true));
-		$address = $this->fun->substr($address, 120);
-		$zipcode = trim($this->fun->accept('zipcode', 'P', true, true));
-		$zipcode = $this->fun->substr($zipcode, 10);
-		$tel = trim($this->fun->accept('tel', 'P', true, true));
-		$tel = $this->fun->substr($tel, 20);
-		$mobile = trim($this->fun->accept('mobile', 'P', true, true));
-		$mobile = $this->fun->substr($mobile, 15);
-		$sendtime = intval($this->fun->accept('sendtime', 'R'));
-		$content = trim($this->fun->accept('content', 'P', true, true));
-		$content = $this->fun->substr($content, 500);
-		$invpayee = trim($this->fun->accept('invpayee', 'P', true, true));
-		$invpayee = $this->fun->substr($invpayee, 60);
-		$invcontent = trim($this->fun->accept('invcontent', 'P', true, true));
-		$invcontent = $this->fun->substr($invcontent, 60);
-		$opid = intval($this->fun->accept('opid', 'P'));
-		$opid = empty($opid) ? 0 : $opid;
-		$osid = intval($this->fun->accept('osid', 'P'));
-		$osid = empty($osid) ? 0 : $osid;
+		$opid = 1;
+		$osid = 1;
 		$productmoney = floatval($this->fun->accept('productmoney', 'P'));
 		$discount_productmoney = floatval($this->fun->accept('discount_productmoney', 'P'));
 		$discountmoney = floatval($this->fun->accept('discountmoney', 'P'));
@@ -269,9 +229,6 @@ class mainpage extends connector {
 			if (empty($did) || empty($bprice) || empty($amount) || empty($countprice) || empty($opid) || empty($osid)) {
 				$buylink = $this->get_link('order', array(), admin_LNG);
 				$this->callmessage($this->lng['order_input_err'], $buylink, $this->lng['oder_buy_goback']);
-			}
-			if (!preg_match("/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/i", $email)) {
-				$this->callmessage($this->lng['email_err'], $_SERVER['HTTP_REFERER'], $this->lng['gobackbotton']);
 			}
 			$payprice = 0;
 			$shipprice = 0;
@@ -291,8 +248,8 @@ class mainpage extends connector {
 			$db_field = 'ordersn,userid,ordertype,osid,opid,shippingsn,paysn,consignee,country,province,city,district,address,
 				zipcode,tel,mobile,email,sendtime,invpayee,invcontent,content,treatnote,paytime,shippingtime,productmoney,shippingmoney,
 				paymoney,orderamount,discount,integral,addtime';
-			$db_values = "'$ordersn',$userid,1,$osid,$opid,'','','$consignee',$country,$province,$city,$district,'$address',
-				'$zipcode','$tel','$mobile','$email','$sendtime','$invpayee','$invcontent','$content','',0,0,$productmoney,$shipprice,
+			$db_values = "'$ordersn',$userid,1,$osid,$opid,'','','',0,0,0,0,'',
+				'','','','','1','','','','',0,0,$productmoney,$shipprice,
 				$payprice,$orderamount,$discountmoney,0,$addtime";
 			$this->db->query('INSERT INTO ' . $db_table . ' (' . $db_field . ') VALUES (' . $db_values . ')');
 			$insert_id = $this->db->insert_id();
